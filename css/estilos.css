@@ -1,0 +1,304 @@
+/* ================================
+   CONFIGURACIÓN GENERAL
+================================ */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4f4f4;
+  color: #222;
+  min-height: 100vh;
+}
+
+
+/* ================================
+   CONTENEDOR
+================================ */
+
+.contenedor {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+}
+
+
+/* ================================
+   ENCABEZADO
+================================ */
+
+.encabezado {
+  background: linear-gradient(135deg, #5b0f1b, #8b1e2d);
+  color: white;
+  padding: 35px 0;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.encabezado h1 {
+  font-size: 36px;
+  margin-bottom: 8px;
+}
+
+.encabezado p {
+  font-size: 17px;
+  opacity: 0.9;
+}
+
+
+/* ================================
+   BIENVENIDA
+================================ */
+
+.bienvenida {
+  background: white;
+  margin-top: 30px;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.bienvenida h2 {
+  color: #6b1422;
+  margin-bottom: 12px;
+}
+
+.bienvenida p {
+  color: #555;
+  line-height: 1.6;
+}
+
+
+/* ================================
+   MENÚ PRINCIPAL
+================================ */
+
+.menu {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin: 25px 0;
+}
+
+.menu button {
+  flex: 1;
+  min-width: 200px;
+}
+
+
+/* ================================
+   BOTONES
+================================ */
+
+button {
+  background: #6b1422;
+  color: white;
+  border: none;
+  padding: 13px 20px;
+  border-radius: 7px;
+  cursor: pointer;
+  font-size: 15px;
+  transition: 0.2s;
+}
+
+button:hover {
+  background: #8b1e2d;
+  transform: translateY(-1px);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+
+/* ================================
+   SECCIONES
+================================ */
+
+.seccion {
+  background: white;
+  margin: 25px 0;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.seccion h2 {
+  color: #6b1422;
+  margin-bottom: 25px;
+  border-bottom: 2px solid #eee;
+  padding-bottom: 10px;
+}
+
+
+/* ================================
+   FORMULARIO
+================================ */
+
+#formHeroe {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.campo {
+  display: flex;
+  flex-direction: column;
+}
+
+.campo label {
+  font-weight: bold;
+  margin-bottom: 7px;
+  color: #444;
+}
+
+.campo input,
+.campo textarea,
+.busqueda input {
+  width: 100%;
+  padding: 11px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 15px;
+  outline: none;
+}
+
+.campo input:focus,
+.campo textarea:focus,
+.busqueda input:focus {
+  border-color: #6b1422;
+  box-shadow: 0 0 0 2px rgba(107, 20, 34, 0.1);
+}
+
+.campo:nth-child(7) {
+  grid-column: 1 / -1;
+}
+
+#formHeroe button {
+  grid-column: 1 / -1;
+}
+
+
+/* ================================
+   MENSAJES
+================================ */
+
+#mensaje {
+  margin-top: 20px;
+  padding: 12px;
+  border-radius: 6px;
+  display: none;
+}
+
+
+/* ================================
+   TABLAS
+================================ */
+
+.tabla-contenedor {
+  width: 100%;
+  overflow-x: auto;
+  margin-top: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  min-width: 900px;
+}
+
+thead {
+  background: #6b1422;
+  color: white;
+}
+
+th,
+td {
+  padding: 12px 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:nth-child(even) {
+  background: #f8f8f8;
+}
+
+tbody tr:hover {
+  background: #f0e4e6;
+}
+
+
+/* ================================
+   BÚSQUEDAS
+================================ */
+
+.busqueda {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.busqueda h3 {
+  color: #555;
+  margin-bottom: 12px;
+}
+
+.busqueda input {
+  width: 70%;
+  margin-right: 10px;
+}
+
+
+/* ================================
+   PIE DE PÁGINA
+================================ */
+
+.pie {
+  background: #222;
+  color: white;
+  text-align: center;
+  padding: 25px;
+  margin-top: 40px;
+}
+
+
+/* ================================
+   RESPONSIVE
+================================ */
+
+@media (max-width: 768px) {
+
+  .encabezado h1 {
+    font-size: 28px;
+  }
+
+  #formHeroe {
+    grid-template-columns: 1fr;
+  }
+
+  .campo:nth-child(7) {
+    grid-column: auto;
+  }
+
+  #formHeroe button {
+    grid-column: auto;
+  }
+
+  .menu {
+    flex-direction: column;
+  }
+
+  .menu button {
+    width: 100%;
+  }
+
+  .busqueda input {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+}

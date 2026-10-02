@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+  <title>Héroes Mexicanos</title>
+
+  <link rel="stylesheet"
+        href="css/style.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+  <div class="container header-content">
+
+    <div>
+      <h1>🇲🇽 Héroes Mexicanos</h1>
+
+      <p>
+        Sistema de gestión de héroes históricos de México
+      </p>
+    </div>
+
+  </div>
+
+</header>
+
+
+<main class="container">
+
+
+  <!-- =========================================
+       MENSAJES
+  ========================================== -->
+
+  <div id="mensaje"
+       class="mensaje"
+       style="display: none;">
+  </div>
+
+
+  <!-- =========================================
+       FORMULARIO
+  ========================================== -->
+
+  <section class="card">
+
+    <h2>Registrar héroe</h2>
+
+    <form id="formHeroe">
+
+
+      <!-- ID OCULTO PARA EDICIÓN -->
+
+      <input
+        type="hidden"
+        id="id"
+      >
+
+
+      <div class="form-grid">
+
+
+        <!-- NOMBRE -->
+
+        <div class="form-group">
+
+          <label for="nombre">
+            Nombre *
+          </label>
+
+          <input
+            type="text"
+            id="nombre"
+            placeholder="Ej. Miguel"
+            required
+          >
+
+        </div>
+
+
+        <!-- APELLIDO -->
+
+        <div class="form-group">
+
+          <label for="apellido">
+            Apellido *
+          </label>
+
+          <input
+            type="text"
+            id="apellido"
+            placeholder="Ej. Hidalgo"
+            required
+          >
+
+        </div>
+
+
+        <!-- FECHA -->
+
+        <div class="form-group">
+
+          <label for="fechaNacimiento">
+            Fecha de nacimiento *
+          </label>
+
+          <input
+            type="date"
+            id="fechaNacimiento"
+            required
+          >
+
+        </div>
+
+
+        <!-- ESTADO -->
+
+        <div class="form-group">
+
+          <label for="estadoNacimiento">
+            Estado de nacimiento *
+          </label>
+
+          <input
+            type="text"
+            id="estadoNacimiento"
+            placeholder="Ej. Guanajuato"
+            required
+          >
+
+        </div>
+
+
+        <!-- ÉPOCA -->
+
+        <div class="form-group">
+
+          <label for="epoca">
+            Época histórica *
+          </label>
+
+          <input
+            type="text"
+            id="epoca"
+            placeholder="Ej. Independencia"
+            required
+          >
+
+        </div>
+
+
+        <!-- MOVIMIENTO -->
+
+        <div class="form-group">
+
+          <label for="movimiento">
+            Movimiento *
+          </label>
+
+          <input
+            type="text"
+            id="movimiento"
+            placeholder="Ej. Independencia de México"
+            required
+          >
+
+        </div>
+
+
+      </div>
+
+
+      <!-- DESCRIPCIÓN -->
+
+      <div class="form-group">
+
+        <label for="descripcion">
+          Descripción
+        </label>
+
+        <textarea
+          id="descripcion"
+          rows="4"
+          placeholder="Descripción del héroe..."
+        ></textarea>
+
+      </div>
+
+
+      <!-- BOTONES -->
+
+      <div class="form-buttons">
+
+        <button
+          type="submit"
+          class="btn btn-primary">
+          Guardar héroe
+        </button>
+
+        <button
+          type="reset"
+          class="btn btn-secondary"
+          onclick="document.getElementById('id').value = ''">
+          Limpiar
+        </button>
+
+      </div>
+
+
+    </form>
+
+  </section>
+
+
+  <!-- =========================================
+       BÚSQUEDAS
+  ========================================== -->
+
+  <section class="card">
+
+    <h2>Buscar héroes</h2>
+
+
+    <div class="search-grid">
+
+
+      <!-- ÉPOCA -->
+
+      <div class="search-group">
+
+        <label for="buscarEpoca">
+          Buscar por época
+        </label>
+
+        <div class="search-row">
+
+          <input
+            type="text"
+            id="buscarEpoca"
+            placeholder="Ej. Independencia"
+          >
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="buscarPorEpoca()">
+            Buscar
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- MOVIMIENTO -->
+
+      <div class="search-group">
+
+        <label for="buscarMovimiento">
+          Buscar por movimiento
+        </label>
+
+        <div class="search-row">
+
+          <input
+            type="text"
+            id="buscarMovimiento"
+            placeholder="Ej. Revolución Mexicana"
+          >
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="buscarPorMovimiento()">
+            Buscar
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- ESTADO -->
+
+      <div class="search-group">
+
+        <label for="buscarEstado">
+          Buscar por estado
+        </label>
+
+        <div class="search-row">
+
+          <input
+            type="text"
+            id="buscarEstado"
+            placeholder="Ej. Zacatecas"
+          >
+
+          <button
+            type="button"
+            class="btn btn-primary"
+            onclick="buscarPorEstado()">
+            Buscar
+          </button>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+    <!-- MOSTRAR TODOS -->
+
+    <div class="show-all">
+
+      <button
+        type="button"
+        class="btn btn-secondary"
+        onclick="mostrarTodos()">
+        Mostrar todos los héroes
+      </button>
+
+    </div>
+
+  </section>
+
+
+  <!-- =========================================
+       TABLA DE HÉROES
+  ========================================== -->
+
+  <section class="card">
+
+    <div class="table-header">
+
+      <div>
+
+        <h2>Héroes registrados</h2>
+
+        <p>
+          Información almacenada mediante la API REST
+        </p>
+
+      </div>
+
+    </div>
+
+
+    <div class="table-container">
+
+      <table>
+
+        <thead>
+
+        <tr>
+
+          <th>ID</th>
+
+          <th>Nombre</th>
+
+          <th>Apellido</th>
+
+          <th>Fecha de nacimiento</th>
+
+          <th>Estado</th>
+
+          <th>Época</th>
+
+          <th>Movimiento</th>
+
+          <th>Descripción</th>
+
+          <th>Acciones</th>
+
+        </tr>
+
+        </thead>
+
+
+        <tbody id="tablaHeroes">
+
+        </tbody>
+
+      </table>
+
+    </div>
+
+  </section>
+
+
+</main>
+
+
+<footer class="footer">
+
+  <p>
+    Sistema de Héroes Mexicanos |
+    Aplicación Web independiente
+  </p>
+
+</footer>
+
+
+<script src="js/app.js"></script>
+
+</body>
+
+</html>
